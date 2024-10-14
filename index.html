@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming soon</title>
+    <link rel="icon" href="/Images/prochef-logo.png" type="image/png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        section {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/Images/wall-bg.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/Images/clipart-bg.jpg');
+            background-position: center;
+            background-size: contain;
+            opacity: 0.08;
+            z-index: 1;
+            filter: blur(1px);
+        }
+
+        .container {
+            max-width: 1350px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        section>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        .text-line {
+            stroke-dasharray: 700;
+            stroke-dashoffset: 700;
+            animation: dash 5s linear forwards, filling 4s ease-in-out forwards;
+            font-size: 90px;
+            margin-top: 30px;
+            height: 100px;
+        }
+
+        .text-line text {
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: normal;
+            font-style: normal;
+            color: #231f20;
+            text-shadow: 0px 5px 5px #0000001e;
+        }
+
+        p {
+            font-size: 25px;
+            text-align: center;
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes filling {
+
+            0%,
+            90% {
+                fill: #231f20;
+                fill-opacity: 0;
+            }
+
+            100% {
+                fill: #231f20;
+                fill-opacity: 1;
+            }
+        }
+
+        .logo-image {
+            max-width: 200px;
+            width: 30vw;
+            margin: 0 auto;
+        }
+
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0;
+            transform: translateY(100px);
+            animation: slideBounce 3s forwards;
+        }
+
+        @keyframes slideBounce {
+            0% {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+
+            60% {
+                opacity: 1;
+                transform: translateY(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-up {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-up.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .shine {
+            position: relative;
+            width: 670px;
+            margin: 0 auto;
+        }
+
+        .shine::before {
+            content: '';
+            width: 30px;
+            height: 100%;
+            background: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            filter: blur(10px);
+            opacity: 0.6;
+            transform: rotate(20deg);
+            animation: shine 5s infinite linear;
+        }
+
+
+
+        @keyframes shine {
+            to {
+                left: 100%;
+            }
+        }
+
+        @media only screen and (max-width:750px) {
+            .text-line {
+                font-size: 70px;
+                margin-top: 20px;
+                height: 80px;
+            }
+
+            p {
+                font-size: 20px;
+            }
+
+            .shine {
+                width: 520px;
+            }
+        }
+
+        @media only screen and (max-width:580px) {
+            .text-line {
+                font-size: 12vw;
+                margin-top: 10px;
+                height: 12vw;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .shine {
+                width: 90vw;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="logo-image">
+                <img src="/Images/prochef-logo2.png" alt="logo">
+            </div>
+
+            <div class="" id="shine">
+                <svg stroke="#231f20" stroke-width="2.5" class="text-line" width="100%">
+                    <text x="50%" dominant-baseline="middle" text-anchor="middle" y="50%" font-weight="black">
+                        COMING SOON
+                    </text>
+                </svg>
+            </div>
+
+            <p id="fade-text">This site is being cooked, Stay Tuned!</p>
+        </div>
+    </section>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const textElement = document.getElementById('fade-text');
+            const text = textElement.textContent;
+            textElement.innerHTML = '';
+
+            text.split('').forEach((char, index) => {
+                const span = document.createElement('span');
+                span.innerHTML = char === ' ' ? '&nbsp;' : char;
+                span.classList.add('fade-up');
+                textElement.appendChild(span);
+
+                setTimeout(() => {
+                    span.classList.add('show');
+                }, 100 * index);
+            });
+        });
+
+        const textLine = document.querySelector('#shine');
+
+        setTimeout(() => {
+            textLine.classList.add('shine');
+        }, 4000);
+
+
+    </script>
+</body>
+
+</html>

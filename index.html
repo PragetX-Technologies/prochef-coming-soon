@@ -5,7 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coming soon</title>
+    <meta name="description"
+        content="ProChef's official website is coming soon! Stay tuned for our premium spice products, recipes, and culinary tips. Connect with us on social media for updates.">
+    <meta name="keywords"
+        content="ProChef, spices, premium spices, spice products, cooking, culinary, recipes, coming soon, gourmet, healthy spices">
+    <meta name="author" content="ProChef">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://prochef.uk/">
+
+    <meta property="og:title" content="Prochef - Coming Soon">
+    <meta property="og:description"
+        content="ProChef's official website is coming soon! Stay tuned for our premium spice products, recipes, and culinary tips. Connect with us on social media for updates.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://prochef.uk/">
+    <meta property="og:image" content="https://prochef.uk/OG-img.png">
+    <meta property="og:image:alt" content="Prochef Logo and Premium Spices">
+    <meta property="og:site_name" content="Prochef">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Prochef - Coming Soon">
+    <meta name="twitter:description"
+        content="ProChef's official website is coming soon! Stay tuned for our premium spice products, recipes, and culinary tips. Connect with us on social media for updates.">
+    <meta name="twitter:image" content="https://prochef.uk/OG-img.png">
+    <meta name="twitter:image:alt" content="Prochef Logo and Premium Spices">
+
+
     <link rel="icon" href="prochef-logo.png" type="image/png">
+
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
@@ -60,6 +88,7 @@
             max-width: 1350px;
             width: 90%;
             margin: 0 auto;
+            pointer-events: none;
         }
 
         section>* {
@@ -181,6 +210,53 @@
             }
         }
 
+
+        .social-media-container {
+            width: 100%;
+            position: fixed;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            animation: fade-up 2s ease forwards 3s;
+        }
+
+        .social-media {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .social-media a {
+            width: 35px;
+        }
+
+        .social-media a img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .social-media a:hover img {
+            transform: translateY(-5px);
+        }
+
+        @keyframes fade-up {
+            0% {
+                bottom: -100px;
+                opacity: 0;
+            }
+
+            100% {
+                bottom: 10px;
+                opacity: 1;
+            }
+        }
+
+
         @media only screen and (max-width:750px) {
             .text-line {
                 font-size: 70px;
@@ -232,6 +308,23 @@
             </div>
 
             <p id="fade-text">This site is being cooked, Stay Tuned!</p>
+        </div>
+        <div class="social-media-container">
+            <div class="social-media">
+                <a href="https://www.facebook.com/ProChefUK/" target="_blank">
+                    <img src="facebook.svg" alt="facebook">
+                </a>
+                <a href="https://www.instagram.com/prochefuk/" target="_blank">
+                    <img src="instagram.svg" alt="instagrma">
+                </a>
+                <a href="https://www.x.com/ProchefUk/" target="_blank">
+                    <img src="twitter.svg" alt="twitter">
+                </a>
+                <a href="https://www.linkedin.com/company/prochefuk/" target="_blank">
+                    <img src="linkedin.svg" alt="linkedin">
+                </a>
+            </div>
+            <p style="font-size: 16px;">let’s get connected on social media</p>
         </div>
     </section>
 
